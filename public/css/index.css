@@ -1,0 +1,33 @@
+html,
+body,
+#root {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	height: 100vh;
+	width: 100vw;
+	position: relative;
+	font-family: sans-serif;
+	background-color: var(--primary-bg);
+	color: var(--primary-fg);
+	overflow: hidden;
+	user-select: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+body {
+	--primary-bg: rgb(32, 32, 32);
+	--primary-fg: rgb(162, 162, 162);
+	--secundary-bg: rgb(64, 64, 64);
+	--secundary-fg: rgb(184, 184, 184);
+	--tertiary-bg: rgb(96, 96, 96);
+	--tertiary-fg: rgb(208, 208, 208);
+}
