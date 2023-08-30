@@ -9,4 +9,9 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get("/api/users", function(_, res)
+{
+	res.send("Users :D");
+});
+
 app.listen(PORT, HOST, () => console.log(`server listening on http${env.isDev ? "" : "s"}://${HOST}:${PORT}`));

@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { execSync } = require("child_process");
 const paths = require("./paths");
 
 const remove = (path, file = true) => fs.existsSync(path) && (file ? fs.unlinkSync(path) : fs.rmdirSync(path));
@@ -10,10 +11,12 @@ module.exports = async () =>
 {
 	if (!fs.existsSync(String(paths.dist)))
 	{
-		const pkg = require("../package.json");
 		copy(paths.resolve("node_modules/electron/dist"), String(paths.dist));
 		remove(paths.dist.asar);
 		mkdir(paths.dist.app);
-		writePackage(pkg);
 	}
+
+	writePackage(require("../package.json"));
+	const response = execSync("npm i", { cwd: paths.dist.app }).toString("utf-8");
+	console.log(response);
 };
